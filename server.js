@@ -48,5 +48,9 @@ TweetCrawler.on('store-disconnected', function() {
   console.warn('store disconnected');
 })
 
-TweetCrawler.dbconnect();
-TweetCrawler.trackPublicationStream(searchTerms)
+
+require('http').createServer(() => {}).listen(process.env.PORT || 5000, () => {
+  console.log('webserver running...');
+  TweetCrawler.dbconnect();
+  TweetCrawler.trackPublicationStream(searchTerms)
+});
