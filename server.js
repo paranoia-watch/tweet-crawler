@@ -49,8 +49,14 @@ TweetCrawler.on('store-disconnected', function() {
 })
 
 
-require('http').createServer(() => {}).listen(process.env.PORT || 5000, () => {
-  console.log('webserver running...');
-  TweetCrawler.dbconnect();
-  TweetCrawler.trackPublicationStream(searchTerms)
+TweetCrawler.dbconnect();
+TweetCrawler.trackPublicationStream(searchTerms)
+
+var server = require('http').createServer((req, res) => {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Welcome, this is the Paranoia Tweet Crawler');
+})
+
+var listener = server.listen(process.env.PORT || 3000, () => {
+  console.info('webserver listening to port ' + listener.address().port);
 });
