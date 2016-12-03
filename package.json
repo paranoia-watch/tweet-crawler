@@ -4,7 +4,8 @@
   "description": "Searches for Tweets, Parses them to Publications and Stores them into a database",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Wouter Vroege",
   "license": "ISC",
